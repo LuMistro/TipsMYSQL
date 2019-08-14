@@ -1,0 +1,11 @@
+Exemplo de Script que gera arquivo de texto
+Antes de executar o script, verifique se a pasta destino existe em seu computador:
+
+SELECT concat("To: ",a.Email),
+"From: contato@andes2008.org",
+concat("Subject: Ola ", trim(a.NomeCliente)),
+"",
+"Tudo bem? Estamos com uma nova promocao que ira lhe interessar, acesse http://bit.ly/promo2018",""
+INTO OUTFILE "c:/temp/emails.txt"
+FIELDS TERMINATED BY '\r\n'
+from clientes a

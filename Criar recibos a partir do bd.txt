@@ -1,0 +1,23 @@
+-----criação de recibos
+
+
+SELECT "RECIBO",
+"=======",
+concat("RECEBEMOS DE ",a.NomeCliente," A QUANTIA DE R$",pedidos.valor_pedido," (",valorExtenso(pedidos.valor_pedido),
+"), REFERENTE AO PAGAMENTO DO PEDIDO NUMERO 1 REALIZADO EM ",pedidos.data_pedido),
+"E PARA TANTO FIRMAMOS O PRESENTE",
+"",
+"-----------------------",
+"EMPRESA XPTO",
+"",
+"PALHOCA-SC, 09 DE OUTUBRO DE 2018",
+"",
+"",
+"8<---------------------------RECORTE AQUI-------------------------------------->8"
+INTO OUTFILE "c:/temp/promocao.txt"
+FIELDS TERMINATED BY '\r\n'
+from clientes a
+INNER JOIN pedidos ON pedidos.clienteID = a.clienteID;
+
+
+
